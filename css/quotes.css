@@ -1,0 +1,22 @@
+#background-pic{
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	opacity: 0.3;
+	position: fixed;
+}
+
+#navigation-menu ul li {
+	padding: 0.1vh 3vw;
+}
+
+#navigation-menu{
+	height: 9vh;
+}
+
+body{
+	margin: 0; 
+	height: auto;
+	width: 100%;
+	overflow: visible;
+}

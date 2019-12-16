@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Order</title>
+	<link type="text/css" rel="stylesheet" href = "..\css\home.css" />
+	<link type="text/css" rel="stylesheet" href = "..\css\contact.css" />
+	<link type="text/css" rel="stylesheet" href = "..\css\read.css" />
+	<link type="text/css" rel="stylesheet" href = "..\css\order.css" />
+	<link rel="shortcut icon" type="image/png" href="..\imagini\favicon.ico"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
+
+</head>
+
+<body>
+<div id="navigation-menu">
+	<ul>
+		<li><a href="index.html">Home</a></li>
+		<li><a href="read.html">Read online</a></li>
+		<li><a href="order.html">Order</a></li>
+		<li><a href="contact.html">Contact</a></li>
+		<li><a href="login.html">Login</a></li>
+		<li><a href="register.html">Register</a></li>
+		<li><a href="reviews.html">Reviews</a></li>
+		<li>
+			<form id="keep-background-btn">Keep this background</form>
+		</li>
+	</ul>
+</div>
+
+<div class="banner">
+	<img id="banner-img" src="..\imagini\banner7.jpg" alt="Banner image">
+	<div class="banner-text">
+		<h1>Order</h1>
+		<pre> “A reader lives
+  a thousand lives
+   before he dies.
+The man who never reads
+	lives only one.” 
+<span>~ George R.R. Martin</span></pre>
+    </div>
+</div>
+
+<img id="mirrored-img" src="..\imagini\banner7.jpg" alt="Banner image">
+
+<div class="fade_away"></div>
+
+<form>
+	<div id="review">
+		
+		  Full name:<br>
+		  <input class="input" type="text" name="fname" required><br>
+		  Email:<br>
+		  <input class="input" type="email" name="email" required><br>
+		  Phone number:<br>
+		  <input class="input" type="tel" name="phone" required><br>
+		  Address: <br>
+		  <textarea id="address" name="address" cols="45" rows="4" required></textarea>
+		
+	</div>	
+
+	<div id="book-selection">
+		Book:<br>
+		<select>
+			  <option value="anna">	Anna Karenina - Leo Tolstoy</option>
+			  <option value="crime">Crime and Punishment - Fyodor Dostoevsky</option>
+			  <option value="quixote">Don Quixote - Miguel de Cervantes</option>
+			  <option value="expectations">Great Expectations -  Charles Dickens</option>
+			  <option value="hamlet">Hamlet - William Shakespeare</option>
+			  <option value="darkness">Heart of Darkness - Joseph Conrad</option>
+			  <option value="hymns">Homeric Hymns - Homer</option>
+			  <option value="losttime">In Search of Lost Time -  Marcel Proust</option>
+			  <option value="eyre">Jane Eyre -  Charlotte Brontë</option>
+			  <option value="macbeth">Macbeth -  William Shakespeare</option>
+			  <option value="mobydick">Moby Dick - Herman Melville</option>
+			  <option value="qmargot">Queen Margot - Alexandre Dumas</option>
+			  <option value="rcrusoe">Robinson Crusoe -  Daniel Defoe</option>
+			  <option value="romeojuliet">Romeo and Juliet - William Shakespeare</option>
+			  <option value="karamazov">The Brothers Karamazov - Fyodor Dostoevsky</option>
+			  <option value="montecrisot">The Count of Monte Cristo -  Alexandre Dumas</option>
+			  <option value="dcomedy">The Divine Comedy - Dante Alighieri</option>
+			  <option value="gatsby">The Great Gatsby - F. Scott Fitzgerald</option>
+			  <option value="idiot">The Idiot - Fyodor Dostoevsky</option>
+			  <option value="iliad">The Iliad - Homer</option>
+			  <option value="notebook">The Notebook - Nicholas Sparks</option>
+			  <option value="odyssey">The Odyssey - Homer</option>
+			  <option value="redblack">The Red and the Black - Stendhal</option>
+			  <option value="musketeer">The Three Musketeers - Alexandre Dumas</option>
+			  <option value="mockingbirs">To Kill a Mockingbird - Harper Lee</option>
+			  <option value="lighthouse">To the Lighthouse -  Virginia Woolf</option>
+			  <option value="ulysses">Ulysses - James Joyce</option>
+			</select>
+
+			<br>Quantity:<br>
+			<input id="quantity" type="number" name="quantity" step="1" value="1" min="1">
+		
+		<br>Any comments/suggestions: <br>
+			<textarea id="suggestion" name="sugestion" cols="40" rows="5" placeholder="gift wrapping, time preferred for the order to arrive etc"></textarea>
+		<br><input id="orderButton" type="submit" value="Submit">
+	</div>
+</form>
+
+<img id="order-gif-left" src="..\imagini\gif2.gif" alt="Book gif">
+<img id="order-gif-right" src="..\imagini\gif2.gif" alt="Book gif">
+
+</body>
+</html>

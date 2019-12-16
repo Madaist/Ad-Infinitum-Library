@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Library Ad Infinitum</title>
+	<link type="text/css" rel="stylesheet" href = "../css/register.css" />
+	<link rel="shortcut icon" type="image/png" href="../imagini/favicon.ico"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+
+	<img id="background-pic" src="..\imagini\backgr3.jpg" alt="Banner image">
+	
+	<div id="formular">
+		<h3>Create an account</h3>
+		<form>
+			<!-- ********************************* FIRST / LAST NAME  ************************************** -->
+			<label>Name:</label>
+			<div class="row">
+				<div class="col" id="first-name-div">
+					
+				</div>
+				<div class="col" id="last-name-div"></div>
+			</div>
+			<span class="emsg hidden">Please enter a valid name</span>
+			<!-- ********************************* AGE  ************************************** -->
+			<br>
+			<label>Birth date:</label>
+			<div class="row">
+				<div class="col">
+					<div class="form-group" id="select-day-div">
+						<label for="exampleFormControlSelectDay">Day</label>
+					</div>
+				</div>
+				<div class="col">
+					<div class="form-group" id="select-month-div">
+						<label for="exampleFormControlSelectMonth">Month</label>
+					</div>
+				</div>
+				<div class="col">
+					<div class="form-group" id="select-year-div">
+						<label for="exampleFormControlSelectYear">Year</label>
+					</div>
+				</div>
+			</div>
+			
+			<!-- ********************************* RADIO BUTTON  ************************************** -->
+			<label>Gender</label>
+			<div class="form-check" id="male-div"></div>
+			<br>
+			<div class="form-check" id="female-div"></div>
+			
+			<!-- ********************************* USERNAME ************************************** -->
+			<br><br>
+			<div class="form-group" id="username-div">
+				<label for="formGroupUsername">Username</label>
+			</div>
+			
+			<!-- ********************************* EMAIL  ************************************** -->
+			<div class="form-group" id="email-div">
+				<label for="exampleInputEmail1">Email address</label>
+				<span class="email-err hidden">Please enter a valid email</span>
+			</div>
+			
+			
+			
+			<!-- ********************************* Password  ************************************** -->
+			<div class="form-group" id="password-div">
+				<label for="exampleInputPassword1">Password</label>
+			</div>
+			
+			<!-- ********************************* Range input  ************************************** -->
+			<div class="form-group" id="range-div">
+				<label for="formControlRange">Book addiction level</label>
+			</div>
+			
+			<!-- ********************************* CHECK ME OUT  ************************************** -->
+			<div class="form-group form-check" id="checkbox-div"></div>
+			
+			<!-- ********************************* submit ************************************** -->
+			<button type="button" class="btn btn-primary" id="submit-register">Submit</button>
+			
+			
+		</form>
+	</div>
+
+
+
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+	<script src = "../js/register.js" type="text/javascript"></script>
+	
+</body>
+</html>

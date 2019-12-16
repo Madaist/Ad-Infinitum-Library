@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Library Ad Infinitum</title>
+	<link type="text/css" rel="stylesheet" href = "../css/home.css" />
+	<link rel="shortcut icon" type="image/png" href="../imagini/favicon.ico"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
+</head>
+
+<body>
+
+	<div id="navigation-menu">
+		<ul>
+			<li><a href="index.html">Home</a></li>
+			<li><a href="read.html">Read online</a></li>
+			<li><a href="order.html">Order</a></li>
+			<li><a href="contact.html">Contact</a></li>
+			<li><a href="login.html">Login</a></li>
+			<li><a href="register.html">Register</a></li>
+			<li><a href="delete-account.html">Delete account</a></li>
+			<li>
+				<form id="keep-background-btn">Keep this background</form>
+			</li>
+		</ul>
+	</div>
+
+	<div class="banner">
+		<img id="banner-img" alt="Banner image">
+		<div class="banner-text">
+			<h1 id="text">Ad Infinitum</h1>
+			<h4>"I have always imagined that Paradise will be a kind of library." ~ Jorge Luis Borges</h4>
+		</div>
+	</div>
+
+	<img id="mirrored-img" alt="Banner image">
+
+	<div class="fade_away"></div>
+
+	<div id="genres"> 
+		<strong>Book genres</strong>
+		<ul>
+		  <li><a href="adventure.html" class="genre-href">Adventure</a></li>
+		  <li><a href="epic-poem.html" class="genre-href">Epic poem</a></li>
+		  <li><a href="modernist.html" class="genre-href">Modernist</a></li>	
+		  <li><a href="novel.html" class="genre-href">Novel</a></li>	
+		  <li><a href="philosophical.html" class="genre-href">Philosophical novel</a></li>	
+		  <li><a href="psychological.html" class="genre-href">Psychological fiction</a></li>
+		  <li><a href="romance.html" class="genre-href">Romance</a></li>
+		  <li><a href="tragedy.html" class="genre-href">Tragedy</a></li>
+		</ul>
+	</div>
+
+	<div id="authors"> 
+		<strong>Authors</strong>
+		<ul>
+		  <li><a href="dostoevsky.html" class="genre-href">Fyodor Dostoevsky</a></li>
+		  <li><a href="shakespeare.html" class="genre-href">William Shakespeare</a></li>
+		  <li><a href="dumas.html" class="genre-href">Alexandre Dumas</a></li>	
+		  <li><a href="homer.html" class="genre-href">Homer</a></li>	
+		</ul>
+	</div>
+
+	<div id="quotes">
+		<p id="first-quote"><span><em>"A room without books is like a body without soul."</em></span> ~ Marcus Tullius Cicero</p>
+		<em id="generated-quote"></em>
+		<br>
+	</div>
+
+	<div id="add-quote">
+		<p>Write a quote you read and loved, anonymous or not</p>
+		<!-- <form action="/action_page.php"> -->
+		<form>
+			Name:<br>
+			<input id="user" class="input" type="text" name="firstname">
+			<br>
+			Quote:<br>
+			<textarea id="quote-from-user" name="quote" cols="26" rows="3"></textarea><br>
+			<button id="submitButton" type="button" value = "Submit">Submit</button>
+		</form>
+	</div>
+
+	<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+	<script src = "../js/home.js" type="text/javascript"></script>
+
+</body>
+</html>

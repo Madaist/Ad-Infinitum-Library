@@ -1,0 +1,71 @@
+#banner-img{
+	width:100vw;
+	height:100vh;
+	z-index:-1;
+	opacity: 0.8;
+}
+
+.grid-container {	
+  display: grid;
+  grid-template-columns: 30vw 30vw 30vw;
+  grid-template-rows: 50vh 6vh 6vh 6vh 6vh 6vh 8vh;
+  background-color: transparent;
+  grid-column-gap: 1vw;
+  padding: 1%;
+  z-index:1;
+  align-content: center;
+  left: 3vw;
+  position: absolute;
+  top: 8vh;
+}
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.6);
+  border: 0.1vw solid rgba(0, 0, 0, 0.8);
+  padding: 3%;
+  font-size: 66%;
+  text-align: center;
+  z-index:2;
+}
+
+.book-cover{
+	width: 15vw;
+	height: 45vh;
+	margin: 0;
+}
+
+.read-online{
+	color: black;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.read-online:hover{
+	font-weight: 900;
+}
+
+.order-button{
+	background-color: #DCD0C0;
+	color: black;
+	text-align: center;
+	border-radius: 20px;
+	width: 10vw;
+	height: 5vh;
+	margin: -1%;
+}
+
+@media only screen and (max-width: 600px) {
+	
+	.grid-container {
+		top:17vh;
+		grid-template-rows: 35vh 6vh 6vh 6vh 6vh 6vh 7vh;
+		
+	}
+	.book-cover{
+		width: 25vw;
+		height: 30vh;
+		margin-top: 5%;
+	}
+	.order-button{
+		width: 15vw;
+	}
+}

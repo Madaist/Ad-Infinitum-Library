@@ -1,0 +1,121 @@
+body{
+	height: 100%;
+	width:100%;
+	overflow:hidden;
+}
+
+#book-selection{
+	top: 57vh;
+	position: absolute;
+	display: inline-block;
+	left: 65vw;
+	height:20vh;
+	font-size: 65%;
+}
+
+#review{
+	border-radius: 25px;
+	padding: 10px; 
+	top: 55vh;
+	position: absolute;
+	text-align: left;
+	color: #373737;
+	left: 4vw;
+	width: 30vw;
+	height: 50vh;
+	text-align: center;
+	z-index:1;
+	color: black;
+	font-size: 66%;
+	
+}
+
+#review{
+	color: black;
+}
+
+#orderButton{
+	background-color: #DCD0C0;
+	color: #373737;
+	text-align: center;
+	border-radius: 20px;
+	padding: 0.5vw;
+}
+
+select{
+	height: 4vh;
+	width: 22vw;
+	overflow: hidden;
+}
+
+#suggestion{
+	width: 22vw;
+	overflow: hidden;
+}
+
+#quantity{
+	width: 12vw;
+	overflow: hidden;
+}
+
+#order-gif-left, #order-gif-right{
+	
+	height: 100vh;
+	width: 37vw;
+	position:absolute;
+	overflow:hidden;
+	z-index:-1;
+	animation: animatie-gif 5s infinite;
+	animation-direction: alternate;
+}
+
+#order-gif-left{
+	left: 0;
+}
+
+#order-gif-right{
+	right: 0;
+}
+
+pre{
+	font-size: 90%;
+	font-family: Times New Roman;
+}
+
+span{
+	font-size: 60%;
+	z-index:1;
+}
+
+.banner-text{
+	top: 30vh;
+	z-index:1;
+}
+
+@keyframes animatie-gif{
+	from{
+		opacity: 1;
+	}
+	to{
+		opacity: 0;
+	}
+}
+
+@media only screen and (max-width: 600px){
+	#review{
+		left: 2vw;
+		width: 28vw;
+	}
+	
+	select{
+		width: 27vw;
+	}
+	
+	#quantity{
+		width: 17vw;
+	}
+	
+	#suggestion{
+	width: 25vw;
+	}
+}

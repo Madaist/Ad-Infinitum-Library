@@ -19,7 +19,7 @@ function changeBackgroundImage() {
     mirroredImg.src = backgroundImgSrc[i];
     i = i + 1; 
     
-    if (i == backgroundImgSrc.length){ // daca am ajuns la sfarsitul vectorului, o luam de la capat
+    if (i === backgroundImgSrc.length){ // daca am ajuns la sfarsitul vectorului, o luam de la capat
         i = 0;
     }
 }

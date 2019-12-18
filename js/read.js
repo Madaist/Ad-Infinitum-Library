@@ -1,5 +1,4 @@
 //adaugare si stergere de elemente din javascript
-//incarcarea unui element audio din javascript
 window.onload = function(){
 	//sterge elemente din javascript
 	var audio1 = document.getElementById("audio1");
@@ -27,4 +26,6 @@ window.onload = function(){
 	iframe.id = "video";
 	iframe.setAttribute('allowFullScreen', '');
 	document.body.appendChild(iframe);
-}; 
+};
+
+

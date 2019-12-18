@@ -1,0 +1,8 @@
+{
+  "name": "Librarie Ad Infinitum",
+  "version": "1.0.0",
+  "dependencies": {
+    "randomcolor": "latest",
+    "require.js": "^1.0.0"
+  }
+}

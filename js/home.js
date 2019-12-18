@@ -62,10 +62,9 @@ function changeBackgroundImage() {
     mirroredImg.src = backgroundImgSrc[i];
     i = i + 1; 
     
-    if (i == backgroundImgSrc.length){ // daca am ajuns la sfarsitul vectorului, o luam de la capat
+    if (i === backgroundImgSrc.length) { // daca am ajuns la sfarsitul vectorului, o luam de la capat
         i = 0;
     }
-    
     timeout = setTimeout(changeBackgroundImage, 3000); //functia se va repeta la fiecare 3 secunde
 }
 
@@ -91,21 +90,27 @@ function saveDataToLocalStorage(data){
 	var quotesFromUser = [];
 	//in localStorage putem avea doar string-uri, deci folosim JSON.stringify cand setam si JSON.parse cand extragem din localStorage
 	quotesFromUser = JSON.parse(localStorage.getItem("quotesFromUser"));
-	quotesFromUser.push(data);
+	if (quotesFromUser === null) {
+        quotesFromUser = [];
+        quotesFromUser.push(data);
+    }
+	else {
+        quotesFromUser.push(data);
+    }
 	localStorage.setItem("quotesFromUser", JSON.stringify(quotesFromUser));
 	 quotesFromUser = JSON.parse(localStorage.getItem("quotesFromUser"));
-	 // var i;
-	 // for(i = 0; i < quotesFromUser.length; i++ )
-		 // console.log(quotesFromUser[i]);
+	 var i;
+	 for(i = 0; i < quotesFromUser.length; i++ )
+		 console.log(quotesFromUser[i]);
 }
 
 submitButton.addEventListener("click", function(){
 	var user = document.getElementById("user").value;
-	if (user == ""){
+	if (user === ""){
 		user = "Anonymous";
 	}
 	var userWords = document.getElementById("quote-from-user").value;
-	if(userWords == ""){
+	if(userWords === ""){
 		Swal.fire({
 		  icon: 'error',
 		  title: 'Oops...',
@@ -116,7 +121,7 @@ submitButton.addEventListener("click", function(){
 		var quote = {
 			userName: user,
 			quote: userWords
-		}
+		};
 		saveDataToLocalStorage(quote);
 	}
 });

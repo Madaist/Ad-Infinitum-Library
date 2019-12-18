@@ -1,12 +1,58 @@
+
 body{
-	margin: 0; 
+	margin: 0;
 	height: auto;
 	width: 100%;
 	overflow: visible;
 }
 
+
+#navigation-menu{
+	text-align: center;
+	background-color: #373737;
+	height: 8vh;
+	display: flex;
+	flex-wrap: wrap;
+	z-index: 2;
+	position:fixed;
+}
+
+
+#navigation-menu ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #373737;
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+
+#navigation-menu ul li {
+	float: left;
+	font-size: large;
+	display: inline;
+	padding: 0.1vh 1.5vw;
+
+}
+
+#navigation-menu ul li a, #navigation-menu ul li form{
+	display: block;
+	color: #F4F4F4;
+	text-align: center;
+	padding: 13px;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+#navigation-menu ul li a:hover, #navigation-menu ul li form:hover{
+	background-color: #DCD0C0;
+}
+
 #formular{
 	position:relative;
+	top: 10vh;
 	left: 10vw;
 	width: 40vw;
 	border-style: solid;

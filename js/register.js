@@ -151,7 +151,7 @@ submitButton.style.cursor = "not-allowed";
 var checkBox = document.querySelector("#exampleCheck1");
 checkBox.checked = false;
 checkBox.addEventListener("click", function(){
-	if(checkBox.checked == true){
+	if(checkBox.checked === true){
 		submitButton.disabled = false;
 		submitButton.style.cursor = "pointer";
 	}
@@ -170,25 +170,25 @@ function swalFire(icon, title, text){
 }
 
 function fieldsValidation(){
-	if(fieldIsValid(firstNameInput.value, nameRegex) == false || fieldIsValid(lastNameInput.value, nameRegex) == false ||
-	   firstNameInput.value == "" || lastNameInput.value == ""){
-		   swalFire('error', 'Invalid name', 'Please insert your real name.');	
-	};
-	if(radioBtnFemale.checked == false && radioBtnMale.checked == false){
+	if(fieldIsValid(firstNameInput.value, nameRegex) === false || fieldIsValid(lastNameInput.value, nameRegex) === false ||
+	   firstNameInput.value === "" || lastNameInput.value === ""){
+		   swalFire('error', 'Invalid name', 'Please insert your real name.');
+	}
+	if(radioBtnFemale.checked === false && radioBtnMale.checked === false){
 		swalFire('error', 'Oops..', 'Please insert your gender.');
-	};
-	if(radioBtnFemale.checked == true && radioBtnMale.checked == true){
+	}
+	if(radioBtnFemale.checked === true && radioBtnMale.checked === true){
 		swalFire('error', 'Oops..', 'Please insert a single gender.');
-	};
-	if(usernameInput.value == "" || fieldIsValid(usernameInput.value, usernameRegex) == false){
+	}
+	if(usernameInput.value === "" || fieldIsValid(usernameInput.value, usernameRegex) === false){
 		swalFire('error', 'Invalid username', 'Please insert a valid username.');
-	};
-	if (emailInput.value == "" || fieldIsValid(emailInput.value, emailRegex) == false){
+	}
+	if (emailInput.value === "" || fieldIsValid(emailInput.value, emailRegex) === false){
 		swalFire('error', 'Invalid email', 'Please insert a valid email.');
-	};
-	if(passwordInput.value == "" || fieldIsValid(passwordInput.value, passwordRegex) == false){
+	}
+	if(passwordInput.value === "" || fieldIsValid(passwordInput.value, passwordRegex) === false){
 		swalFire('error', 'Invalid password', 'Your password must be 8-20 characters long, contain at least a capital letter, a lower letter, a digit and a special character.');
-	};	
+	}
 }
 
 // var users = []; // vectorul in care vom tine citatele si utilizatorii care le-au postat
@@ -199,7 +199,13 @@ function saveUserToLocalStorage(user){
 	var users = [];
 	//in localStorage putem avea doar string-uri, deci folosim JSON.stringify cand setam si JSON.parse cand extragem din localStorage
 	users = JSON.parse(localStorage.getItem("users"));
-	users.push(user);
+	if(users === null){
+		users = [];
+		users.push(user);
+	}
+	else{
+		users.push(user);
+	}
 	localStorage.setItem("users", JSON.stringify(users));
 	users = JSON.parse(localStorage.getItem("users"));
 	var i;
@@ -209,14 +215,14 @@ function saveUserToLocalStorage(user){
 // cand apasam butonul de submit, se apeleaza functiile de validare a campurilor si apar mesaje de eroare in caz ca sunt probleme
 // daca toate campurile sunt in regula, se salveaza datele in localStorage
 submitButton.addEventListener("click", function(){
-	
+
 	fieldsValidation();
-	
+
 	var gender = null;
 	if(radioBtnMale.checked)
 		gender = "male";
 	else
-		gender = "female"
+		gender = "female";
 	
 	var userInfo = {
 		lastName: lastNameInput.value,
@@ -230,12 +236,12 @@ submitButton.addEventListener("click", function(){
 	};
 	
 	saveUserToLocalStorage(userInfo);
-	
-	Swal.fire(
-		'Account created',
-		'Welcome!',
-		'success'
-	)
+
+	// Swal.fire(
+	// 		'Account created',
+	// 		'Welcome!',
+	// 		'success'
+	// 	)
 });
 
 // cand apasam enter, se apeleaza aceeasi functie ca atunci cand pasam submit
@@ -243,7 +249,7 @@ document.body.addEventListener("keypress", function(event){
 	var tasta = event.keyCode;
 	if (tasta === 13)
 		submitButton.click();
-})
+});
 
 function instantValidationHidden(input, regex, errorClass){
 	
@@ -284,3 +290,4 @@ events.forEach(function(event){
 		instantValidationColor(this, usernameRegex, "#usernameHelpBlock");
 	});
 });
+

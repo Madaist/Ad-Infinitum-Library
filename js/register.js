@@ -168,30 +168,34 @@ function swalFire(icon, title, text){
 }
 
 function fieldsValidation(){
+	let wrongs = 0;
 	if(fieldIsValid(firstNameInput.value, nameRegex) === false || fieldIsValid(lastNameInput.value, nameRegex) === false ||
 	   firstNameInput.value === "" || lastNameInput.value === ""){
 		   swalFire('error', 'Invalid name', 'Please insert your real name.');
+		   wrongs++;
 	}
 	if(radioBtnFemale.checked === false && radioBtnMale.checked === false){
 		swalFire('error', 'Oops..', 'Please insert your gender.');
+		wrongs++;
 	}
 	if(radioBtnFemale.checked === true && radioBtnMale.checked === true){
 		swalFire('error', 'Oops..', 'Please insert a single gender.');
+		wrongs++;
 	}
 	if(usernameInput.value === "" || fieldIsValid(usernameInput.value, usernameRegex) === false){
 		swalFire('error', 'Invalid username', 'Please insert a valid username.');
+		wrongs++;
 	}
 	if (emailInput.value === "" || fieldIsValid(emailInput.value, emailRegex) === false){
 		swalFire('error', 'Invalid email', 'Please insert a valid email.');
+		wrongs++;
 	}
 	if(passwordInput.value === "" || fieldIsValid(passwordInput.value, passwordRegex) === false){
 		swalFire('error', 'Invalid password', 'Your password must be 8-20 characters long, contain at least a capital letter, a lower letter, a digit and a special character.');
+		wrongs++;
 	}
+	return wrongs;
 }
-
-// var users = []; // vectorul in care vom tine citatele si utilizatorii care le-au postat
-// users.push(JSON.parse(localStorage.getItem("users")));
-// localStorage.setItem("users", JSON.stringify(users));
 
 function saveUserToLocalStorage(user){
 	//in localStorage putem avea doar string-uri, deci folosim JSON.stringify cand setam si JSON.parse cand extragem din localStorage
@@ -199,8 +203,7 @@ function saveUserToLocalStorage(user){
 	if(users === null){
 		users = [];
 		users.push(user);
-	}
-	else{
+	} else {
 		users.push(user);
 	}
 	localStorage.setItem("users", JSON.stringify(users));
@@ -213,32 +216,33 @@ function saveUserToLocalStorage(user){
 // daca toate campurile sunt in regula, se salveaza datele in localStorage
 submitButton.addEventListener("click", function(){
 
-	fieldsValidation();
+	if(fieldsValidation() === 0) {
 
-	let gender;
-	if(radioBtnMale.checked)
-		gender = "male";
-	else
-		gender = "female";
+		let gender;
+		if (radioBtnMale.checked)
+			gender = "male";
+		else
+			gender = "female";
 
-	const userInfo = {
-		lastName: lastNameInput.value,
-		firstName: firstNameInput.value,
-		email: emailInput.value,
-		password: passwordInput.value,
-		username: usernameInput.value,
-		bookAddiction: rangeInput.value,
-		birthDate: selectDayInput.value + "-" + selectMonthInput.value + "-" + selectYearInput.value,
-		gender: gender
-	};
+		const userInfo = {
+			lastName: lastNameInput.value,
+			firstName: firstNameInput.value,
+			email: emailInput.value,
+			password: passwordInput.value,
+			username: usernameInput.value,
+			bookAddiction: rangeInput.value,
+			birthDate: selectDayInput.value + "-" + selectMonthInput.value + "-" + selectYearInput.value,
+			gender: gender
+		};
 
-	saveUserToLocalStorage(userInfo);
+		saveUserToLocalStorage(userInfo);
 
-	// Swal.fire(
-	// 		'Account created',
-	// 		'Welcome!',
-	// 		'success'
-	// 	)
+		Swal.fire(
+				'Account created',
+				'Welcome!',
+				'success'
+			)
+	}
 });
 
 // cand apasam enter, se apeleaza aceeasi functie ca atunci cand pasam submit

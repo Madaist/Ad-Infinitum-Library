@@ -1,55 +1,55 @@
 function createInput(type, placeholder, id, className, divId, areaDescribedBy){
-	var input = document.createElement("input");
+	let input = document.createElement("input");
 	input.type = type;
 	input.placeholder = placeholder;
 	input.id = id;
 	input.className = className;
 	input.setAttribute("area-describedby", areaDescribedBy);
-	var nameDiv = document.getElementById(divId);
+	const nameDiv = document.getElementById(divId);
 	nameDiv.appendChild(input);
 }
 
 function createGenderInput(type, className, id, value, labelClass, labelId, divId){
-	var radioBtn = document.createElement("input");
+	let radioBtn = document.createElement("input");
 	radioBtn.setAttribute("type", type);
 	radioBtn.className = className;
 	radioBtn.id = id;
 	radioBtn.value = value;
-	
-	var label = document.createElement("label");
+
+	let label = document.createElement("label");
 	label.className = labelClass;
 	label.id = labelId;
 	label.htmlFor = radioBtn.id;
 	label.innerHTML = radioBtn.value;
-	
-	var genderDiv = document.getElementById(divId);
+
+	const genderDiv = document.getElementById(divId);
 	genderDiv.appendChild(radioBtn);
 	genderDiv.appendChild(label);
 }
 
 function createSmallText(id, className, innerHTML, divId){
-	var small = document.createElement("small");
+	let small = document.createElement("small");
 	small.id = id;
 	small.className = className;
 	small.innerHTML = innerHTML;
-	var smallDiv = document.getElementById(divId);
+	const smallDiv = document.getElementById(divId);
 	smallDiv.appendChild(small);
 }
 
 function createLabel(className, htmlFor, innerHTML, divId){
-	var label = document.createElement("label");
+	let label = document.createElement("label");
 	label.className = className;
 	label.htmlFor = htmlFor;
 	label.innerHTML = innerHTML;
-	var labelDiv = document.getElementById(divId);
+	const labelDiv = document.getElementById(divId);
 	labelDiv.appendChild(label);
 }
 
 function createSelectInput(id, className, divId){
-	var selectInput = document.createElement("select");
+	let selectInput = document.createElement("select");
 	selectInput.id = id;
 	selectInput.className = className;
-	var selectDiv = document.getElementById(divId);
+	const selectDiv = document.getElementById(divId);
 	selectDiv.appendChild(selectInput);
 	return selectInput;
 }
@@ -70,44 +70,42 @@ createSmallText("emailHelp", "form-text text-muted", "We'll never share your ema
 createSmallText("passwordHelpBlock", "form-text", "Your password must be 8-20 characters long, contain at least a capital letter, a lower letter, a digit and a special character.", "password-div");
 createLabel("form-check-label", "exampleCheck1", "Check me out", "checkbox-div");
 
-var firstNameInput = document.getElementById("first-name");
-var lastNameInput = document.getElementById("last-name");
-var radioBtnMale = document.querySelector("#exampleRadios1");
-var radioBtnFemale = document.querySelector("#exampleRadios2");
-var usernameInput = document.querySelector("#formGroupUsername");
-var userNameHelp = document.querySelector("#usernameHelpBlock");
-var emailInput = document.querySelector("#exampleInputEmail1");
-var emailHelp = document.querySelector("#emailHelp");
-var passwordInput = document.querySelector("#exampleInputPassword1");
-var passwordHelp = document.querySelector("#passwordHelpBlock");
-var checkBoxInput = document.querySelector("#exampleCheck1");
-var rangeInput = document.querySelector("#formControlRange");
+const firstNameInput = document.getElementById("first-name");
+const lastNameInput = document.getElementById("last-name");
+const radioBtnMale = document.querySelector("#exampleRadios1");
+const radioBtnFemale = document.querySelector("#exampleRadios2");
+const usernameInput = document.querySelector("#formGroupUsername");
+const emailInput = document.querySelector("#exampleInputEmail1");
+const emailHelp = document.querySelector("#emailHelp");
+const passwordInput = document.querySelector("#exampleInputPassword1");
+const rangeInput = document.querySelector("#formControlRange");
 
-var selectDayInput = createSelectInput("selectDay", "form-control", "select-day-div");
-var i;
+let selectDayInput = createSelectInput("selectDay", "form-control", "select-day-div");
+let i;
+let option;
 for(i = 1; i < 32; i++ ){
-	var option = document.createElement("option");
+	option = document.createElement("option");
 	option.text = i;
 	selectDayInput.add(option);
 }
 
-var selectMonthInput = createSelectInput("selectMonth", "form-control", "select-month-div");
-var months = ['January', 'February', 'March', 'April', 'May', 'June','July', 'August', 'September', 'Octomber', 'November', 'December'];
+const selectMonthInput = createSelectInput("selectMonth", "form-control", "select-month-div");
+const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'Octomber', 'November', 'December'];
 for(i = 0; i < months.length; i++ ){
-	var option = document.createElement("option");
+	option = document.createElement("option");
 	option.text = months[i];
 	selectMonthInput.add(option);
 }
 
-var selectYearInput = createSelectInput("selectYear", "form-control", "select-year-div");
+const selectYearInput = createSelectInput("selectYear", "form-control", "select-year-div");
 for(i = 1920; i < 2010; i++ ){
-	var option = document.createElement("option");
+	option = document.createElement("option");
 	option.text = i;
 	selectYearInput.add(option);
 }
 
 // pentru input-ul de tip Range se afiseaza valoarea la fiecare modificare
-var rangeValue = document.createElement("p");
+const rangeValue = document.createElement("p");
 rangeValue.innerHTML = rangeInput.value;
 rangeInput.parentNode.insertBefore(rangeValue, rangeInput.nextSibling);
 rangeInput.addEventListener("change", function(){
@@ -116,7 +114,7 @@ rangeInput.addEventListener("change", function(){
 	
 
 // ********************************* validari  *************************************** //
-var emailRegex =  /^[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)*@([a-zA-Z0-9]+([a-z0-9]*)\.)+[a-zA-Z]+$/;
+const emailRegex = /^[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)*@([a-zA-Z0-9]+([a-z0-9]*)\.)+[a-zA-Z]+$/;
 /*
 ^ - incepe de la inceputul stringului
 [a-zA-Z0-9_-] - face match cu un singur caracter din range-urile a-z,A-Z,0-9
@@ -129,13 +127,13 @@ dupa @ trebuie sa avem litere sau cifre neaprat si apoi un punct, apoi iar liter
 $ - sfarsitul sting-ului
 */
 
-var passwordRegex = /^(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z])(?=.*[?!~@#$%^&*`'"_=+,\.?{}-])[a-zA-Z0-9!?@#$%^&*_=+,\.?{}-]{8,20}/;
+const passwordRegex = /^(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z])(?=.*[?!~@#$%^&*`'"_=+,\.?{}-])[a-zA-Z0-9!?@#$%^&*_=+,\.?{}-]{8,20}/;
 /*
 .* matches any character (except for line terminators)
 ?=.* - CEL PUTIN UNA
 */
-var nameRegex = /^([a-zA-Z]{3,16})$/;
-var usernameRegex = /^([a-zA-Z0-9_\.-]{4,16})$/;
+const nameRegex = /^([a-zA-Z]{3,16})$/;
+const usernameRegex = /^([a-zA-Z0-9_\.-]{4,16})$/;
 
 function fieldIsValid(field, fieldRegex){
 	return fieldRegex.test(field);
@@ -143,12 +141,12 @@ function fieldIsValid(field, fieldRegex){
 
 
 // La incarcarea paginii, butonul de "Submit" este dezactivat
-var submitButton = document.querySelector("button");
+const submitButton = document.querySelector("button");
 submitButton.disabled = true;
 submitButton.style.cursor = "not-allowed";
 
 // Butonul de submit se reactiveaza cand checkbox-ul este bifat (si se dezactiveaza cand este debifat din nou checkbox-ul).
-var checkBox = document.querySelector("#exampleCheck1");
+const checkBox = document.querySelector("#exampleCheck1");
 checkBox.checked = false;
 checkBox.addEventListener("click", function(){
 	if(checkBox.checked === true){
@@ -196,9 +194,8 @@ function fieldsValidation(){
 // localStorage.setItem("users", JSON.stringify(users));
 
 function saveUserToLocalStorage(user){
-	var users = [];
 	//in localStorage putem avea doar string-uri, deci folosim JSON.stringify cand setam si JSON.parse cand extragem din localStorage
-	users = JSON.parse(localStorage.getItem("users"));
+	let users = JSON.parse(localStorage.getItem("users"));
 	if(users === null){
 		users = [];
 		users.push(user);
@@ -208,7 +205,7 @@ function saveUserToLocalStorage(user){
 	}
 	localStorage.setItem("users", JSON.stringify(users));
 	users = JSON.parse(localStorage.getItem("users"));
-	var i;
+	let i;
 	for(i = 0; i < users.length; i++ )
 		 console.log(users[i]);
 }
@@ -218,13 +215,13 @@ submitButton.addEventListener("click", function(){
 
 	fieldsValidation();
 
-	var gender = null;
+	let gender;
 	if(radioBtnMale.checked)
 		gender = "male";
 	else
 		gender = "female";
-	
-	var userInfo = {
+
+	const userInfo = {
 		lastName: lastNameInput.value,
 		firstName: firstNameInput.value,
 		email: emailInput.value,
@@ -234,7 +231,7 @@ submitButton.addEventListener("click", function(){
 		birthDate: selectDayInput.value + "-" + selectMonthInput.value + "-" + selectYearInput.value,
 		gender: gender
 	};
-	
+
 	saveUserToLocalStorage(userInfo);
 
 	// Swal.fire(
@@ -245,15 +242,15 @@ submitButton.addEventListener("click", function(){
 });
 
 // cand apasam enter, se apeleaza aceeasi functie ca atunci cand pasam submit
-document.body.addEventListener("keypress", function(event){ 
-	var tasta = event.keyCode;
+document.body.addEventListener("keypress", function(event){
+	const tasta = event.keyCode;
 	if (tasta === 13)
 		submitButton.click();
 });
 
 function instantValidationHidden(input, regex, errorClass){
-	
-	var errorText = document.querySelector(errorClass);
+
+	const errorText = document.querySelector(errorClass);
 	if(input.value.match(regex)){
 		errorText.classList.add("hidden");
 	} else{
@@ -262,7 +259,7 @@ function instantValidationHidden(input, regex, errorClass){
 }
 
 function instantValidationColor(input, regex, errorId){
-	var errorText = document.querySelector(errorId);
+	const errorText = document.querySelector(errorId);
 	if(input.value.match(regex)){
 		errorText.classList.remove("color-red");
 		errorText.classList.add("color-gray");
@@ -272,7 +269,7 @@ function instantValidationColor(input, regex, errorId){
 	}
 }
 
-var events = ["keypress", "keyup"];
+const events = ["keypress", "keyup"];
 events.forEach(function(event){
 	firstNameInput.addEventListener(event, function(){
 		instantValidationHidden(this, nameRegex, ".emsg");

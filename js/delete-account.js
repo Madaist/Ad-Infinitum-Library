@@ -1,31 +1,30 @@
 function createInput(type, id, className, divId){
-	var input = document.createElement("input");
+	let input = document.createElement("input");
 	input.type = type;
 	input.id = id;
 	input.className = className;
-	var nameDiv = document.getElementById(divId);
+	let nameDiv = document.getElementById(divId);
 	nameDiv.appendChild(input);
 }
 
 createInput("email", "exampleInputEmail1", "form-control", "email-div");
 createInput("password", "exampleInputPassword1", "form-control", "password-div");
 
-var emailInput = document.querySelector("#exampleInputEmail1");
-var passwordInput = document.querySelector("#exampleInputPassword1");
-
-var submitButton = document.querySelector("button");
+const emailInput = document.querySelector("#exampleInputEmail1");
+const passwordInput = document.querySelector("#exampleInputPassword1");
+const submitButton = document.querySelector("button");
 
 function deleteAccount(email, password){
-	var users = JSON.parse(localStorage.getItem("users"));
-	var i;
-	var found = false;
+	let users = JSON.parse(localStorage.getItem("users"));
+	let i;
+	let found = false;
 	for(i = 0; i < users.length; i++){
-		if(users[i].email == email && users[i].password == password){
+		if(users[i].email === email && users[i].password === password){
 			users.splice(i);
 			found = true;
 			localStorage.setItem("users", JSON.stringify(users));
-		};
-	};
+		}
+	}
 	return found;
 }
 
@@ -38,7 +37,7 @@ submitButton.addEventListener("click", function(){
 		cancelButton: 'btn btn-danger'
 		},
 	buttonsStyling: false
-	})
+	});
 
 	swalWithBootstrapButtons.fire({
 		title: 'Are you sure?',
@@ -54,7 +53,7 @@ submitButton.addEventListener("click", function(){
 			if(deleteAccount(emailInput.value, passwordInput.value)){
 				swalWithBootstrapButtons.fire(
 				'Deleted!',
-				'Your file has been deleted.',
+				'Your account has been deleted.',
 				'success'
 			)}
 			else{
@@ -75,5 +74,3 @@ submitButton.addEventListener("click", function(){
 		)}
 	})
 });
-
-// 1@Asdfgh

@@ -1,10 +1,10 @@
 //adaugare si stergere de elemente din javascript
 window.onload = function(){
 	//sterge elemente din javascript
-	var audio1 = document.getElementById("audio1");
+	let audio1 = document.getElementById("audio1");
 	audio1.parentNode.removeChild(audio1);
 
-	var audio2 = document.getElementById("audio2");
+	let audio2 = document.getElementById("audio2");
 	audio2.parentNode.removeChild(audio2);
 
 	//adaugare elemente audio din javascript
@@ -21,7 +21,7 @@ window.onload = function(){
 	document.body.appendChild(audio2);
 	
 	//adaugare element video din javascript
-	var iframe = document.createElement("iframe");
+	let iframe = document.createElement("iframe");
 	iframe.src = "https://www.youtube.com/embed/3ihxQlOlMf8";
 	iframe.id = "video";
 	iframe.setAttribute('allowFullScreen', '');

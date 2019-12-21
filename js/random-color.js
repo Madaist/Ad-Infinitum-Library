@@ -8,6 +8,6 @@ let interval = setInterval(changeBackgroundColor, 3000); //apelam functia de sch
 
 const keepBackground = document.querySelector("#keep-background-btn");
 //cand facem click pe butonul de keep background, functia nu se mai repeta
-keepBackground.addEventListener("click", function(){
+keepBackground.addEventListener("click", function () {
     clearInterval(interval);
 });

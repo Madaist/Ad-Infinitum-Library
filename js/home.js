@@ -73,7 +73,7 @@ changeBackgroundImage(); //apelam functia de schimabre a background-ului
 
 const keepBackground = document.querySelector("#keep-background-btn");
 //cand facem click pe butonul de keep background, functia nu se mai repeta
-keepBackground.addEventListener("click", function(){
+keepBackground.addEventListener("click", function (){
     clearTimeout(timeout);
 });
 
@@ -86,37 +86,35 @@ keepBackground.addEventListener("click", function(){
 // quotesFromUser.push(JSON.parse(localStorage.getItem("quotesFromUser")));
 // localStorage.setItem("quotesFromUser", JSON.stringify(quotesFromUser));
 
-function saveDataToLocalStorage(data){
+function saveDataToLocalStorage(data) {
     //in localStorage putem avea doar string-uri, deci folosim JSON.stringify cand setam si JSON.parse cand extragem din localStorage
 	let quotesFromUser = JSON.parse(localStorage.getItem("quotesFromUser"));
 	if (quotesFromUser === null) {
         quotesFromUser = [];
         quotesFromUser.push(data);
-    }
-	else {
+    } else {
         quotesFromUser.push(data);
     }
 	localStorage.setItem("quotesFromUser", JSON.stringify(quotesFromUser));
 	 quotesFromUser = JSON.parse(localStorage.getItem("quotesFromUser"));
     let i;
-    for(i = 0; i < quotesFromUser.length; i++ )
+    for(i = 0; i < quotesFromUser.length; i++)
 		 console.log(quotesFromUser[i]);
 }
 
-submitButton.addEventListener("click", function(){
+submitButton.addEventListener("click", function (){
     let user = document.getElementById("user").value;
     if (user === ""){
 		user = "Anonymous";
 	}
     const userWords = document.getElementById("quote-from-user").value;
-    if(userWords === ""){
+    if (userWords === ""){
 		Swal.fire({
 		  icon: 'error',
 		  title: 'Oops...',
 		  text: 'You have to enter a quote first!'
 		})
-	}
-	else{
+	} else {
 		let quote = {
 			userName: user,
 			quote: userWords

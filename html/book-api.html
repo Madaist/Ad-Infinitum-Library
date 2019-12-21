@@ -3,19 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Library Ad Infinitum</title>
-    <link type="text/css" rel="stylesheet" href = "../css/book-api.css" />
     <link rel="shortcut icon" type="image/png" href="../imagini/favicon.ico"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
-<body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<div class="container">
-    <hr>
-    <h1>Create New Book</h1>
-    <hr>
 
-    <form action="http://localhost:3000/books/" method="POST" target="_self">
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <div class="container">
+        <hr>
+        <h1>Add a book</h1>
+        <hr>
+
         <div class="form-group">
             <label for="title">Title</label>
             <input class="form-control" id="title" name="title">
@@ -36,14 +35,13 @@
             <input class="form-control" id="price" name="price">
         </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-</div>
+        <button type="submit" class="btn btn-primary" id="submit-post">Submit</button>
+    </div>
 
-<div class="container">
-    <hr>
-    <h1>Update Book</h1>
-    <hr>
+    <div class="container">
+        <hr>
+        <h1>Update a book</h1>
+        <hr>
 
         <div class="form-group">
             <label for="book-id">Book id</label>
@@ -71,20 +69,26 @@
         </div>
 
         <button type="submit" class="btn btn-primary" id="submit-update">Submit</button>
-</div>
+    </div>
 
     <div class="container">
         <hr>
-        <h1>Delete a Book</h1>
+        <h1>Delete a book</h1>
         <hr>
 
         <div class="form-group">
-            <label for="book-id">Book id</label>
+            <label for="book-id-del">Book id</label>
             <input class="form-control" id="book-id-del" name="title">
         </div>
 
         <button type="submit" class="btn btn-primary" id="submit-delete">Submit</button>
     </div>
+
+    <br><br>
+    <div class="container" id = "books-div">
+        <button class="btn btn-primary" id="show-books-btn">Show all books</button>
+    </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>

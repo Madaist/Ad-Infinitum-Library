@@ -1,4 +1,4 @@
-function createInput(type, placeholder, id, className, divId, areaDescribedBy){
+function createInput(type, placeholder, id, className, divId, areaDescribedBy) {
 	let input = document.createElement("input");
 	input.type = type;
 	input.placeholder = placeholder;
@@ -9,7 +9,7 @@ function createInput(type, placeholder, id, className, divId, areaDescribedBy){
 	nameDiv.appendChild(input);
 }
 
-function createGenderInput(type, className, id, value, labelClass, labelId, divId){
+function createGenderInput(type, className, id, value, labelClass, labelId, divId) {
 	let radioBtn = document.createElement("input");
 	radioBtn.setAttribute("type", type);
 	radioBtn.className = className;
@@ -27,7 +27,7 @@ function createGenderInput(type, className, id, value, labelClass, labelId, divI
 	genderDiv.appendChild(label);
 }
 
-function createSmallText(id, className, innerHTML, divId){
+function createSmallText(id, className, innerHTML, divId) {
 	let small = document.createElement("small");
 	small.id = id;
 	small.className = className;
@@ -36,7 +36,7 @@ function createSmallText(id, className, innerHTML, divId){
 	smallDiv.appendChild(small);
 }
 
-function createLabel(className, htmlFor, innerHTML, divId){
+function createLabel(className, htmlFor, innerHTML, divId) {
 	let label = document.createElement("label");
 	label.className = className;
 	label.htmlFor = htmlFor;
@@ -45,7 +45,7 @@ function createLabel(className, htmlFor, innerHTML, divId){
 	labelDiv.appendChild(label);
 }
 
-function createSelectInput(id, className, divId){
+function createSelectInput(id, className, divId) {
 	let selectInput = document.createElement("select");
 	selectInput.id = id;
 	selectInput.className = className;
@@ -108,7 +108,7 @@ for(i = 1920; i < 2010; i++ ){
 const rangeValue = document.createElement("p");
 rangeValue.innerHTML = rangeInput.value;
 rangeInput.parentNode.insertBefore(rangeValue, rangeInput.nextSibling);
-rangeInput.addEventListener("change", function(){
+rangeInput.addEventListener("change", function (){
 	rangeValue.innerHTML = rangeInput.value;
 });
 	
@@ -127,15 +127,15 @@ dupa @ trebuie sa avem litere sau cifre neaprat si apoi un punct, apoi iar liter
 $ - sfarsitul sting-ului
 */
 
-const passwordRegex = /^(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z])(?=.*[?!~@#$%^&*`'"_=+,\.?{}-])[a-zA-Z0-9!?@#$%^&*_=+,\.?{}-]{8,20}/;
+const passwordRegex = /^(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z])(?=.*[?!~@#$%^&*`'"_=+,.{}-])[a-zA-Z0-9!?@#$%^&*_=+,.{}-]{8,20}/;
 /*
 .* matches any character (except for line terminators)
 ?=.* - CEL PUTIN UNA
 */
 const nameRegex = /^([a-zA-Z]{3,16})$/;
-const usernameRegex = /^([a-zA-Z0-9_\.-]{4,16})$/;
+const usernameRegex = /^([a-zA-Z0-9_.-]{4,16})$/;
 
-function fieldIsValid(field, fieldRegex){
+function fieldIsValid(field, fieldRegex) {
 	return fieldRegex.test(field);
 }
 
@@ -148,18 +148,17 @@ submitButton.style.cursor = "not-allowed";
 // Butonul de submit se reactiveaza cand checkbox-ul este bifat (si se dezactiveaza cand este debifat din nou checkbox-ul).
 const checkBox = document.querySelector("#exampleCheck1");
 checkBox.checked = false;
-checkBox.addEventListener("click", function(){
-	if(checkBox.checked === true){
+checkBox.addEventListener("click", function (){
+	if (checkBox.checked === true){
 		submitButton.disabled = false;
 		submitButton.style.cursor = "pointer";
-	}
-	else {
+	} else {
 	submitButton.disabled = true;
 	submitButton.style.cursor = "not-allowed";
 	}
 });
 
-function swalFire(icon, title, text){
+function swalFire(icon, title, text) {
 	Swal.fire({
 			icon: icon,
 			title: title,
@@ -167,22 +166,22 @@ function swalFire(icon, title, text){
 		})
 }
 
-function fieldsValidation(){
+function fieldsValidation() {
 	let wrongs = 0;
-	if(fieldIsValid(firstNameInput.value, nameRegex) === false || fieldIsValid(lastNameInput.value, nameRegex) === false ||
+	if (fieldIsValid(firstNameInput.value, nameRegex) === false || fieldIsValid(lastNameInput.value, nameRegex) === false ||
 	   firstNameInput.value === "" || lastNameInput.value === ""){
 		   swalFire('error', 'Invalid name', 'Please insert your real name.');
 		   wrongs++;
 	}
-	if(radioBtnFemale.checked === false && radioBtnMale.checked === false){
+	if (radioBtnFemale.checked === false && radioBtnMale.checked === false){
 		swalFire('error', 'Oops..', 'Please insert your gender.');
 		wrongs++;
 	}
-	if(radioBtnFemale.checked === true && radioBtnMale.checked === true){
+	if (radioBtnFemale.checked === true && radioBtnMale.checked === true){
 		swalFire('error', 'Oops..', 'Please insert a single gender.');
 		wrongs++;
 	}
-	if(usernameInput.value === "" || fieldIsValid(usernameInput.value, usernameRegex) === false){
+	if (usernameInput.value === "" || fieldIsValid(usernameInput.value, usernameRegex) === false){
 		swalFire('error', 'Invalid username', 'Please insert a valid username.');
 		wrongs++;
 	}
@@ -190,17 +189,17 @@ function fieldsValidation(){
 		swalFire('error', 'Invalid email', 'Please insert a valid email.');
 		wrongs++;
 	}
-	if(passwordInput.value === "" || fieldIsValid(passwordInput.value, passwordRegex) === false){
+	if (passwordInput.value === "" || fieldIsValid(passwordInput.value, passwordRegex) === false){
 		swalFire('error', 'Invalid password', 'Your password must be 8-20 characters long, contain at least a capital letter, a lower letter, a digit and a special character.');
 		wrongs++;
 	}
 	return wrongs;
 }
 
-function saveUserToLocalStorage(user){
+function saveUserToLocalStorage(user) {
 	//in localStorage putem avea doar string-uri, deci folosim JSON.stringify cand setam si JSON.parse cand extragem din localStorage
 	let users = JSON.parse(localStorage.getItem("users"));
-	if(users === null){
+	if (users === null){
 		users = [];
 		users.push(user);
 	} else {
@@ -214,15 +213,16 @@ function saveUserToLocalStorage(user){
 }
 // cand apasam butonul de submit, se apeleaza functiile de validare a campurilor si apar mesaje de eroare in caz ca sunt probleme
 // daca toate campurile sunt in regula, se salveaza datele in localStorage
-submitButton.addEventListener("click", function(){
+submitButton.addEventListener("click", function (){
 
-	if(fieldsValidation() === 0) {
+	if (fieldsValidation() === 0) {
 
 		let gender;
-		if (radioBtnMale.checked)
+		if (radioBtnMale.checked) {
 			gender = "male";
-		else
+		} else {
 			gender = "female";
+		}
 
 		const userInfo = {
 			lastName: lastNameInput.value,
@@ -246,48 +246,48 @@ submitButton.addEventListener("click", function(){
 });
 
 // cand apasam enter, se apeleaza aceeasi functie ca atunci cand pasam submit
-document.body.addEventListener("keypress", function(event){
+document.body.addEventListener("keypress", function (event) {
 	const tasta = event.keyCode;
 	if (tasta === 13)
 		submitButton.click();
 });
 
-function instantValidationHidden(input, regex, errorClass){
+function instantValidationHidden(input, regex, errorClass) {
 
 	const errorText = document.querySelector(errorClass);
-	if(input.value.match(regex)){
+	if (input.value.match(regex)){
 		errorText.classList.add("hidden");
-	} else{
+	} else {
 		errorText.classList.remove("hidden");
 	}
 }
 
-function instantValidationColor(input, regex, errorId){
+function instantValidationColor(input, regex, errorId) {
 	const errorText = document.querySelector(errorId);
-	if(input.value.match(regex)){
+	if (input.value.match(regex)){
 		errorText.classList.remove("color-red");
 		errorText.classList.add("color-gray");
-	} else{
+	} else {
 		errorText.classList.remove("color-gray");
 		errorText.classList.add("color-red");
 	}
 }
 
 const events = ["keypress", "keyup"];
-events.forEach(function(event){
-	firstNameInput.addEventListener(event, function(){
+events.forEach(function (event){
+	firstNameInput.addEventListener(event, function (){
 		instantValidationHidden(this, nameRegex, ".emsg");
 	});
-	lastNameInput.addEventListener(event, function(){
+	lastNameInput.addEventListener(event, function (){
 		instantValidationHidden(this, nameRegex, ".emsg");
 	});
-	emailInput.addEventListener(event, function(){
+	emailInput.addEventListener(event, function (){
 		instantValidationHidden(this, emailRegex, ".email-err");
 	});
-	passwordInput.addEventListener(event, function(){
+	passwordInput.addEventListener(event, function (){
 		instantValidationColor(this, passwordRegex, "#passwordHelpBlock");
 	});
-	usernameInput.addEventListener(event, function(){
+	usernameInput.addEventListener(event, function (){
 		instantValidationColor(this, usernameRegex, "#usernameHelpBlock");
 	});
 });

@@ -1,4 +1,4 @@
-function createInput(type, id, className, divId){
+function createInput(type, id, className, divId) {
 	let input = document.createElement("input");
 	input.type = type;
 	input.id = id;
@@ -14,12 +14,12 @@ const emailInput = document.querySelector("#exampleInputEmail1");
 const passwordInput = document.querySelector("#exampleInputPassword1");
 const submitButton = document.querySelector("button");
 
-function deleteAccount(email, password){
+function deleteAccount(email, password) {
 	let users = JSON.parse(localStorage.getItem("users"));
 	let i;
 	let found = false;
 	for(i = 0; i < users.length; i++){
-		if(users[i].email === email && users[i].password === password){
+		if (users[i].email === email && users[i].password === password){
 			users.splice(i);
 			found = true;
 			localStorage.setItem("users", JSON.stringify(users));
@@ -30,7 +30,7 @@ function deleteAccount(email, password){
 
 
 
-submitButton.addEventListener("click", function(){
+submitButton.addEventListener("click", function (){
 	const swalWithBootstrapButtons = Swal.mixin({
 		customClass: {
 		confirmButton: 'btn btn-success',
@@ -55,8 +55,7 @@ submitButton.addEventListener("click", function(){
 				'Deleted!',
 				'Your account has been deleted.',
 				'success'
-			)}
-			else{
+			)} else {
 				swalWithBootstrapButtons.fire(
 				'Oops..',
 				'This account doesn\'t exist',

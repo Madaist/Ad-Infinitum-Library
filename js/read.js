@@ -1,5 +1,5 @@
 //adaugare si stergere de elemente din javascript
-window.onload = function(){
+window.onload = function (){
 	//sterge elemente din javascript
 	let audio1 = document.getElementById("audio1");
 	audio1.parentNode.removeChild(audio1);

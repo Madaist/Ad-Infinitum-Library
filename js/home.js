@@ -57,8 +57,8 @@ function changeBackgroundImage() {
     //selectam imaginile carora vrem sa le setam src-ul
     const backgroundImg = document.querySelector("#banner-img");
     const mirroredImg = document.querySelector("#mirrored-img");
-
-    backgroundImg.src = backgroundImgSrc[i]; //setam sursa
+    //setam sursa
+    backgroundImg.src = backgroundImgSrc[i];
     mirroredImg.src = backgroundImgSrc[i];
     i = i + 1; 
     
@@ -68,7 +68,7 @@ function changeBackgroundImage() {
     timeout = setTimeout(changeBackgroundImage, 3000); //functia se va repeta la fiecare 3 secunde
 }
 
-changeBackgroundImage(); //apelam functia de schimabre a background-ului
+changeBackgroundImage(); //apelam functia de schimbare a background-ului
 
 
 const keepBackground = document.querySelector("#keep-background-btn");
@@ -81,45 +81,38 @@ keepBackground.addEventListener("click", function (){
 // ********************************************************************************* //
 //citatele introduse de utilizator vor fi salvate in local storage sub forma unui array de obiecte
 // un obiect din array va contine userName-ul si citatul propriu-zis
-
-// var quotesFromUser = []; // vectorul in care vom tine citatele si utilizatorii care le-au postat
-// quotesFromUser.push(JSON.parse(localStorage.getItem("quotesFromUser")));
-// localStorage.setItem("quotesFromUser", JSON.stringify(quotesFromUser));
-
-function saveDataToLocalStorage(data) {
-    //in localStorage putem avea doar string-uri, deci folosim JSON.stringify cand setam si JSON.parse cand extragem din localStorage
+//in localStorage putem avea doar string-uri, deci folosim JSON.stringify cand setam si JSON.parse cand extragem din localStorage
+function saveQuotesToLocalStorage(data) {
+    //luam vectorul de citate din localStorage
 	let quotesFromUser = JSON.parse(localStorage.getItem("quotesFromUser"));
-	if (quotesFromUser === null) {
+	if (quotesFromUser === null) { //daca vectorul nu exista inca, il cream si punem in el citatul data de user
         quotesFromUser = [];
         quotesFromUser.push(data);
-    } else {
+    } else { //daca exista, doar adaugam citatul
         quotesFromUser.push(data);
     }
+	//salvam din nou vectorul in localStorage
 	localStorage.setItem("quotesFromUser", JSON.stringify(quotesFromUser));
-	 quotesFromUser = JSON.parse(localStorage.getItem("quotesFromUser"));
-    let i;
-    for(i = 0; i < quotesFromUser.length; i++)
-		 console.log(quotesFromUser[i]);
 }
 
 submitButton.addEventListener("click", function (){
     let user = document.getElementById("user").value;
-    if (user === ""){
-		user = "Anonymous";
+    if (user === ""){  // utilizatorul poate alege sa nu isi dea numele cand trimite un citat
+		user = "Anonymous"; //in acest caz, utilizatorul este trecut ca anonim
 	}
     const userWords = document.getElementById("quote-from-user").value;
-    if (userWords === ""){
+    if (userWords === ""){ // daca nu introduce niciun citat, apare eroare
 		Swal.fire({
 		  icon: 'error',
 		  title: 'Oops...',
 		  text: 'You have to enter a quote first!'
 		})
-	} else {
+	} else { // altfel, cream un obiect cu usernameul si citatul
 		let quote = {
 			userName: user,
 			quote: userWords
 		};
-		saveDataToLocalStorage(quote);
+		saveQuotesToLocalStorage(quote); // salvam obiectul in localStorage
 	}
 });
 

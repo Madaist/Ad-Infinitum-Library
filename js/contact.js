@@ -1,6 +1,4 @@
-// ********************************************************************************* //
 //imaginea de background se schimba la fiecare 3 secunde.
-
 //vector cu surse de imagini pentru background
 let backgroundImgSrc = [
     "../imagini/banner2.jpg",
@@ -25,7 +23,7 @@ function changeBackgroundImage() {
     }
 }
 
-let interval = setInterval(changeBackgroundImage, 3000); //apelam functia de schimabre a background-ului
+let interval = setInterval(changeBackgroundImage, 3000); //functia de schimbare se va apela la fiecare 3 secunde
 
 const keepBackground = document.querySelector("#keep-backgr-btn");
 //cand facem click pe butonul de keep background, functia nu se mai repeta

@@ -14,8 +14,9 @@ app.use(function (req, res, next) {
 
 // Configuring the database
 const dbConfig = require('../config/database.config.js');
+// Mongoose is an ODM (Object Document Mapping) tool for Node.js and MongoDB.
+// It helps you convert the objects in your code to documents in the database and vice versa
 const mongoose = require('mongoose');
-
 mongoose.Promise = global.Promise;
 
 // Connecting to the database

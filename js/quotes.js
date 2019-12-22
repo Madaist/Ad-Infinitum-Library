@@ -1,12 +1,12 @@
 //la incarcarea paginii, luam citatele din local storage si le afisam
 window.onload = function (){
 	let quotesFromUser =  JSON.parse(localStorage.getItem("quotesFromUser"));
-	let i;
-	for (i = 1; i < quotesFromUser.length; i++){
+	for (let i = 1; i < quotesFromUser.length; i++){
 		createQuoteDiv(quotesFromUser[i].quote, quotesFromUser[i].userName);
 	}
 };
 
+//functie de creare a div-urilor in care vom pune fiecare citat
 function createQuoteDiv(quote, user) {
 		//in div-ul mic vom avea citatul in sine iar in div-ul mare vom avea div-ul mic + numele utilizatorului.
 		let largeDiv = document.createElement("div");
